@@ -15,8 +15,12 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-
+# the url function is not used like in the book, path is used instead due to url not working
+# from django.conf.urls import include, urls for some reason urls could not be imported
+app_name = 'learning_logs'
 urlpatterns = [
+	# the path below does not uses include like in the book
     path('admin/', admin.site.urls),
+    # the path below does not have namespace like the book
     path('', include('learning_logs.urls')),
 ]
