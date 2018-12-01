@@ -14,13 +14,18 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import include, path
+from django.urls import include, re_path
 # the url function is not used like in the book, path is used instead due to url not working
 # from django.conf.urls import include, urls for some reason urls could not be imported
+
 app_name = 'learning_logs'
+
 urlpatterns = [
 	# the path below does not uses include like in the book
-    path('admin/', admin.site.urls),
+    re_path(r'^admin/', admin.site.urls),
     # the path below does not have namespace like the book
-    path('', include('learning_logs.urls')),
+    re_path(r'', include('learning_logs.urls')),
 ]
+
+
+    
