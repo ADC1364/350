@@ -11,6 +11,11 @@ urlpatterns = [
 	# Login page
 	re_path(r'^login/$',LoginView.as_view(template_name='users/login.html'), name='login'),
 	
-	#Logout page, creating our own view
+	# Logout page, creating our own view
 	re_path(r'^logout/$', views.logout_view, name='logout'),
+	
+	# Registration page
+	re_path(r'^register/$', views.register, name='register'),
+	
+	
 	]
