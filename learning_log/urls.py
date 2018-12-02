@@ -19,10 +19,14 @@ from django.urls import include, re_path
 # from django.conf.urls import include, urls for some reason urls could not be imported
 
 app_name = 'learning_logs'
+app_name = 'users'
 
 urlpatterns = [
 	# the path below does not uses include like in the book
     re_path(r'^admin/', admin.site.urls),
+    
+    re_path(r'^users/', include('users.urls')),
+    
     # the path below does not have namespace like the book
     re_path(r'', include('learning_logs.urls')),
 ]
