@@ -139,3 +139,26 @@ LOGOUT_REDIRECT_URL = '/'
 BOOTSTRAP3 = {
 	'include_jquery': True,
 	}
+	
+	
+# Settings for Heroku
+cwd = os.getcwd()
+if cwd == '/app' or cwd[:4] == '/tmp':
+    import dj_database_url
+    DATABASES = {
+        'default': dj_database_url.config(default='postgres://localhost')
+    }
+    
+    # Honor the 'X-Forwarded-Proto' header for request.is_secure().
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    
+    # Only allow heroku to host the project.
+    ALLOWED_HOSTS = ['learning-log-final.herokuapp.com']
+    DEBUG = False
+
+    # Static asset configuration
+    BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+    STATIC_ROOT = 'staticfiles'
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+)
