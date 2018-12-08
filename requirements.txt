@@ -16,4 +16,4 @@ pytz==2018.7
 six==1.11.0
 static3==0.7.0
 Unidecode==1.0.23
-psycopg>=2.6.1
+psycopg2>=2.6.1
