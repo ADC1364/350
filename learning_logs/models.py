@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 # Create your models here.
 class Topic(models.Model):
 	
@@ -32,6 +31,15 @@ class Entry(models.Model):
 	
 	text = models.TextField()
 	date_added = models.DateTimeField(auto_now_add=True)
+	
+	#  I added status to each entry
+	COMPLETE= 'complete'
+	INCOMPLETE= 'incomplete'
+	STATUS_CHOICES = (
+	(COMPLETE, 'complete'),
+	(INCOMPLETE, 'incomplete'),
+	)
+	status = models.CharField(max_length=10,choices=STATUS_CHOICES, default=INCOMPLETE,)
 	
 	class Meta:
 		verbose_name_plural = 'entries'

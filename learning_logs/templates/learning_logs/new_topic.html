@@ -7,7 +7,7 @@
 {% endblock header %}
 
 {% block content %}
-	<p>Add a new topic:</p>
+	<p>Add the name of the Topic and a priority level to it.</p>
 	<form action="{% url 'learning_logs:new_topic' %}" method='post' class="form">
 		{% csrf_token %}
 		

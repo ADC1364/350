@@ -4,7 +4,7 @@
 
 	<p><a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a></p>
 	
-	<p>Add a new entry:</p>
+	<p>Add an entry and provide a status of completion related to the entry.</p>
 	<form action="{% url 'learning_logs:new_entry' topic.id %}" method='post'>
 	{% csrf_token %}
 	{{ form.as_p }}
