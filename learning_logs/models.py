@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Topic(models.Model):
 	
 	# A topic the user is learning about
-	text = models.TextField()
+	text = models.CharField(max_length = 255)
 	date_added = models.DateTimeField(auto_now_add=True)
 	owner = models.ForeignKey(User, on_delete=models.CASCADE)
 	
@@ -18,7 +18,7 @@ class Topic(models.Model):
 	(MEDIUM, "medium"),
 	(LOW, "low"),
 	)
-	priority = models.TextField(choices=PRIORITY_CHOICES, default=MEDIUM,)
+	priority = models.CharField(max_length =6, choices=PRIORITY_CHOICES, default=MEDIUM,)
 	
 	
 	def __str__(self):
@@ -39,7 +39,7 @@ class Entry(models.Model):
 	(COMPLETE, "complete"),
 	(INCOMPLETE, "incomplete"),
 	)
-	status = models.TextField(choices=STATUS_CHOICES, default=INCOMPLETE,)
+	status = models.CharField(max_length=10, choices=STATUS_CHOICES, default=INCOMPLETE,)
 	
 	class Meta:
 		verbose_name_plural = "entries"
