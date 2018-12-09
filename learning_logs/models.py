@@ -10,15 +10,15 @@ class Topic(models.Model):
 	owner = models.ForeignKey(User, on_delete=models.CASCADE)
 	
 	#  I added priority to the topic
-	HIGH= 'high'
-	MEDIUM= 'medium'
-	LOW= 'low'
+	HIGH= "high"
+	MEDIUM= "medium"
+	LOW= "low"
 	PRIORITY_CHOICES = (
-	(HIGH, 'high'),
-	(MEDIUM, 'medium'),
-	(LOW, 'low'),
+	(HIGH, "high"),
+	(MEDIUM, "medium"),
+	(LOW, "low"),
 	)
-	priority = models.TextField(max_length=6,choices=PRIORITY_CHOICES, default=MEDIUM,)
+	priority = models.TextField(choices=PRIORITY_CHOICES, default=MEDIUM,)
 	
 	
 	def __str__(self):
@@ -33,13 +33,13 @@ class Entry(models.Model):
 	date_added = models.DateTimeField(auto_now_add=True)
 	
 	#  I added status to each entry
-	COMPLETE= 'complete'
-	INCOMPLETE= 'incomplete'
+	COMPLETE= "complete"
+	INCOMPLETE= "incomplete"
 	STATUS_CHOICES = (
-	(COMPLETE, 'complete'),
-	(INCOMPLETE, 'incomplete'),
+	(COMPLETE, "complete"),
+	(INCOMPLETE, "incomplete"),
 	)
-	status = models.TextField(max_length=10,choices=STATUS_CHOICES, default=INCOMPLETE,)
+	status = models.TextField(choices=STATUS_CHOICES, default=INCOMPLETE,)
 	
 	class Meta:
 		verbose_name_plural = 'entries'
