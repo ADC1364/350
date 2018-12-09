@@ -12,7 +12,8 @@
 	{% for topic in topics %}
 		<li>
 			<h3>
-				<a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }} 
+				<a href="{% url 'learning_logs:topic' topic.id %}">{{ topic }}</a>
+				<small> {{ topic.priority  }} </small>
 			</h3>
 		</li>
 	{% empty %}
