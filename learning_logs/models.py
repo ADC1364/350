@@ -42,7 +42,7 @@ class Entry(models.Model):
 	status = models.TextField(choices=STATUS_CHOICES, default=INCOMPLETE,)
 	
 	class Meta:
-		verbose_name_plural = 'entries'
+		verbose_name_plural = "entries"
 	
 	def __str__(self):
 		# Return a string representation of the model
