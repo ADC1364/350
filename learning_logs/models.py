@@ -18,7 +18,7 @@ class Topic(models.Model):
 	(MEDIUM, 'medium'),
 	(LOW, 'low'),
 	)
-	priority = models.CharField(max_length=6,choices=PRIORITY_CHOICES, default=MEDIUM,)
+	priority = models.TextField(max_length=6,choices=PRIORITY_CHOICES, default=MEDIUM,)
 	
 	
 	def __str__(self):
@@ -39,7 +39,7 @@ class Entry(models.Model):
 	(COMPLETE, 'complete'),
 	(INCOMPLETE, 'incomplete'),
 	)
-	status = models.CharField(max_length=10,choices=STATUS_CHOICES, default=INCOMPLETE,)
+	status = models.TextField(max_length=10,choices=STATUS_CHOICES, default=INCOMPLETE,)
 	
 	class Meta:
 		verbose_name_plural = 'entries'
